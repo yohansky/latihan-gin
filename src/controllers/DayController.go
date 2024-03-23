@@ -12,7 +12,7 @@ func SelectAllDay(c *gin.Context) {
 	res := models.SelectAllDay()
 	c.JSON(200, gin.H{
 		"Message": "Tampil Semua Berhasil",
-		"data": res,
+		"data":    res,
 	})
 }
 
@@ -22,7 +22,7 @@ func SelectDay(c *gin.Context) {
 	res := models.SelectDay(id)
 	c.JSON(200, gin.H{
 		"Message": "Tampil Berhasil",
-		"data": res,
+		"data":    res,
 	})
 }
 
@@ -62,7 +62,3 @@ func DeleteDay(c *gin.Context) {
 		"message": "Delete Berhasil",
 	})
 }
-
-
-
-

@@ -12,7 +12,7 @@ func MonthList(c *gin.Context) {
 	res := models.MonthList()
 	c.JSON(200, gin.H{
 		"message": "Tampil semua Berhasil",
-		"data": res,
+		"data":    res,
 	})
 }
 
@@ -37,7 +37,7 @@ func MonthShow(c *gin.Context) {
 	res := models.MonthDetail(id)
 	c.JSON(200, gin.H{
 		"message": "Berhasil",
-		"data": res,
+		"data":    res,
 	})
 }
 

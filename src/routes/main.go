@@ -2,12 +2,27 @@ package routes
 
 import (
 	"latihan-gin/src/controllers"
+	"time"
 
+	helmet "github.com/danielkov/gin-helmet"
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 )
 
 func Router() {
 	router := gin.Default()
+	router.Use(helmet.Default())
+	router.Use(cors.New(cors.Config{
+		AllowOrigins:     []string{"*"},
+		AllowMethods:     []string{"PUT", "PATCH", "GET", "POST", "DELETE"},
+		AllowHeaders:     []string{"Origin"},
+		ExposeHeaders:    []string{"Content-Length"},
+		AllowCredentials: true,
+		AllowOriginFunc: func(origin string) bool {
+			return origin == "https://github.com"
+		},
+		MaxAge: 12 * time.Hour,
+	}))
 
 	// // Simple group: v1
 	// v1 := router.Group("/v1")
